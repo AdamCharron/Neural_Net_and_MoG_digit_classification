@@ -35,13 +35,10 @@ randConst = 1;
 p = randConst+rand(K,1); p = p/sum(p);
 mn = mean(x,2); vr = std(x,[],2).^2;
 
-%-------------------- Modify the code here --------------------------------
-% Change the random initialization with k-means algorithm, use 5
-% iterations.
+% Random initialization with k-means algorithm, 5 iterations used
 mu = mn*ones(1,K)+randn(N,K).*(sqrt(vr)/randConst*ones(1,K));
 %mu = kmeans(x,20,5);
 
-%------------------------------------------------------------------------
 vary = vr*ones(1,K)*2; vary = (vary>=minVary).*vary + (vary<minVary)*minVary;
 
 % Do iters iterations of EM
